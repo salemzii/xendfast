@@ -1,0 +1,16 @@
+{% extends 'segun_app/base.html' %}
+
+{% block content %}
+    <fieldset>
+        <legend> Your details... </legend>
+        {% if user.is_active %}
+            {{ user.first_name }} {{ user.last_name }} <br>
+            {{ user.username }} <br>
+            {{ user.email }} <br>
+            {{ user_kyc.dob }} <br>
+            {{ user_kyc.home_address }} <br>
+            {{ user_kyc.is_verified }} <br>
+            <img src="{{ user_kyc.personal_ids.url }}" width="75" height="75">
+        {% endif %}
+    </fieldset>
+{% endblock content %}

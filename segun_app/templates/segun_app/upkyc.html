@@ -1,0 +1,13 @@
+{% extends 'segun_app/base.html' %}
+
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Let's know more about you</legend>
+        {{ form }}
+    </fieldset>
+    <button type="submit">upload data</button>
+</form>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'segun_app/base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated and user.is_active %}
+        <h3>Hello {{ user.username }}, what would you like to do today?</h3>
+        <na>
+            <a href="{% url 'send-money' %}">Send Money</a>  
+        </na>
+    {% else %}
+        <nav>
+            <a href="{% url 'verify' %}">verify your mail</a>
+            <a href="{% url 'uploadKyc' user.id %}">Upload Kyc</a>
+        </nav>
+    {% endif %}
+
+{% endblock content %}

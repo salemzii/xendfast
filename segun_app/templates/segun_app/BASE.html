@@ -1,0 +1,30 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pay money online with stripe, easy, convenient and Reliable">
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>Pay With Stripe</title>
+</head>
+<body>
+    <div class="nav-bar">
+        {% if user.is_authenticated %}
+            <a class="nav-item navlink" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a class="nav-item navlink" href="{% url 'login' %}">Login</a>
+            <a class="nav-item navlink" href="{% url 'sign-up' %}">Register</a>
+        {% endif %}
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+
+    {% endblock content %}
+</body>
+</html>
